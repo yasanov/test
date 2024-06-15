@@ -9,7 +9,7 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -39,17 +39,31 @@ $config = [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+                [
+                    'class' => 'app\logic\BaseFileTarget',
+                    'levels' => ['info'],
+                    'categories' => ['operators'],
+                    'logVars' => [],
+                    'logFile' => '@app/runtime/logs/Operators.log',
+                ],
+                [
+                    'class' => 'app\logic\BaseFileTarget',
+                    'levels' => ['info'],
+                    'categories' => ['clients'],
+                    'logVars' => [],
+                    'logFile' => '@app/runtime/logs/Clients.log',
+                ],
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
