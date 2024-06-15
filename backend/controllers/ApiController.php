@@ -33,9 +33,12 @@ class ApiController extends Controller
     public function actionIndex()
     {
         $name = Yii::$app->request->post('name');
+        $payload = Yii::$app->request->post('payload');
 
         Yii::info($name, 'clients');
-        Yii::info($name . '!', 'operators');
+        if (isset($payload['text'])) {
+            Yii::info($payload['text'], 'clients');
+        }
 
         return $name;
     }
