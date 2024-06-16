@@ -12,14 +12,14 @@ class ClientMessageService extends BaseMessageService
     const RESPONSE_MESSAGE = 'pong!';
 
     public function answer(array $payload): void {
-        if (str_contains($payload['text'] ?? '', self::REQUEST_MESSAGE) && isset($payload['dialogId'])) {
+        if (str_contains($payload['message']['text'] ?? '', self::REQUEST_MESSAGE) && isset($payload['message']['dialogId'])) {
             $client = new Client();
             $response = $client->createRequest()
                 ->setMethod('POST')
                 ->setUrl(Yii::$app->params['teletypeApiBaseUrl'] . '/message/send')
                 ->addHeaders(['X-Auth-Token' => Yii::$app->params['teletypeToken']])
                 ->setData([
-                    'dialogId' => $payload['dialogId'],
+                    'dialogId' => $payload['message']['dialogId'],
                     'text' => self::RESPONSE_MESSAGE,
                     ])
                 ->send();

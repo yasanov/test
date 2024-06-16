@@ -8,7 +8,7 @@ use \Yii;
 class OperatorLogService extends BaseLogService
 {
     public function log(array $payload) {
-        $message = $payload['text'] ?? '';
+        $message = $payload['message']['text'] ?? '';
         Yii::info($message, MessageManager::CLIENT_MESSAGE_NAME);
     }
 }
