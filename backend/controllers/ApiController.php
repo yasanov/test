@@ -37,16 +37,6 @@ class ApiController extends Controller
         $name = Yii::$app->request->post('name');
         $payload = Json::decode(Yii::$app->request->post('payload') ?? '{}');
 
-        Yii::info($name, 'client');
-        if (isset($payload['text'])) {
-            Yii::info($payload['text'], 'client');
-        }
-        if (isset($payload['dialogId'])) {
-            Yii::info($payload['dialogId'], 'client');
-        }
-
-        return $name;
-
         $logService = MessageManager::createLogService($name);
         $messageService = MessageManager::createMessageService($name);
 
