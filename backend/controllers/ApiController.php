@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\logic\MessageManager;
 use Yii;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 
@@ -34,7 +35,7 @@ class ApiController extends Controller
     public function actionIndex()
     {
         $name = Yii::$app->request->post('name');
-        $payload = Yii::$app->request->post('payload');
+        $payload = Json::decode(Yii::$app->request->post('payload') ?? '{}');
 
         Yii::info($name, 'clients');
         if (isset($payload['text'])) {
