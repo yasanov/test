@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\logic\MessageManager;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -39,6 +40,17 @@ class ApiController extends Controller
         if (isset($payload['text'])) {
             Yii::info($payload['text'], 'clients');
         }
+        if (isset($payload['dialogId'])) {
+            Yii::info($payload['dialogId'], 'clients');
+        }
+
+        return $name;
+
+        $logService = MessageManager::createLogService($name);
+        $messageService = MessageManager::createMessageService($name);
+
+        $logService->log($payload);
+        $messageService->answer($payload);
 
         return $name;
     }
