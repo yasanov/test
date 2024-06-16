@@ -7,8 +7,10 @@ use \Yii;
 
 class OperatorLogService extends BaseLogService
 {
+    public static string $logCategory = 'operator';
+
     public function log(array $payload) {
         $message = $payload['message']['text'] ?? '';
-        Yii::info($message, MessageManager::CLIENT_MESSAGE_NAME);
+        Yii::info($message, self::$logCategory);
     }
 }

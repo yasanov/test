@@ -42,14 +42,14 @@ $config = [
                 [
                     'class' => 'app\logic\BaseFileTarget',
                     'levels' => ['info'],
-                    'categories' => ['success send'],
+                    'categories' => ['operator'],
                     'logVars' => [],
                     'logFile' => '@app/runtime/logs/Operators.log',
                 ],
                 [
                     'class' => 'app\logic\BaseFileTarget',
                     'levels' => ['info'],
-                    'categories' => ['new message'],
+                    'categories' => ['client'],
                     'logVars' => [],
                     'logFile' => '@app/runtime/logs/Clients.log',
                 ],
