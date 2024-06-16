@@ -4,10 +4,8 @@
 </p>
 
 ### В корне лежат:
- - ***[index.html](index.html)*** - точка входа для github pages.
- - ***[index.js](index.js)*** - скрипт на всякий пожарный.
+ - ***[index.html](index.html)*** - точка входа для github pages (скрипт чата тут лежит).
 
 ### В backend директории лежит yii2 приложение. Точки входа:
 
- - ***site/test***
- - ***site/test2***
+ - ***api/index***
