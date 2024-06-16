@@ -12,8 +12,8 @@ use yii\base\Exception;
 
 class MessageManager
 {
-    public const OPERATOR_MESSAGE_NAME = 'operator';
-    public const CLIENT_MESSAGE_NAME = 'client';
+    public const OPERATOR_MESSAGE_NAME = 'success send';
+    public const CLIENT_MESSAGE_NAME = 'new message';
 
     static function createLogService(string $name): BaseLogService {
         switch ($name) {
